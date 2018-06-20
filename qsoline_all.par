@@ -1,0 +1,73 @@
+# Input file used by RM_global_fit of QSO continuum+emission line fit
+# Note constraints vindex/windex/findex are performed in each individual line complex
+# instead of globally.
+
+typedef struct {
+  double lambda;     # Vacuum Wavelength in Ang
+  char compname[40]; # Name of line complex
+  float minwav;      # Complex fitting wavelength range
+  float maxwav;      # Complex fitting wavelength range
+  char linename[40]; # Name of line
+  int ngauss;        # Number of Gaussians for the line
+  float inisig;      # initial guess of linesigma [in lnlambda]
+  float minsig;      # Range of line sigma [lnlambda]
+  float maxsig;      #
+  float voff;        # Limits on velocity offset from the central wavelength [lnlambda]
+  int vindex;        # Entries w/ same NONZERO vindex constrained to have same velocity;
+  int windex;        # Entries w/ same NONZERO windex constrained to have same width;
+  int findex;        # Entries w/ same NONZERO findex have constrained flux ratios;
+  float fvalue;      # Relative scale factor for entries w/ same findex
+  int fitflag;       # 1=fit the line
+} emline;
+
+#       lambda   compname  minwav maxwav  linename     ngauss inisig  minsig maxsig voff  vindex windex findex  fvalue  fit?
+ emline 2799.11  "MgII"    2200.  3090.   "MgII_br"    1      5E-3    0.002  0.05   0.015 0      0      0       0.01    1
+ emline 2799.11  "MgII"    2200.  3090.   "MgII_na"    1      1E-3    2.3E-4 0.002  5E-3  1      1      0       0.002   1
+#emline 6549.85  "Halpha"  6400.  6800.   "NII6549"    1      1E-3    2.3E-4 0.002  5E-3  1      1      1       0.001   1
+#emline 6585.28  "Halpha"  6400.  6800.   "NII6585"    1      1E-3    2.3E-4 0.002  5E-3  1      1      1       0.003   1
+#emline 6718.29  "Halpha"  6400.  6800.   "SII6718"    1      1E-3    2.3E-4 0.002  5E-3  1      1      2       0.001   1
+#emline 6732.67  "Halpha"  6400.  6800.   "SII6732"    1      1E-3    2.3E-4 0.002  5E-3  1      1      2       0.001   1
+#
+#emline 4862.68  "Hbeta"   4640.  5100.   "Hbeta_br"   3      5E-3    0.002  0.05   0.01  0      0      0       0.01    1
+#emline 4862.68  "Hbeta"   4640.  5100.   "Hbeta_na"   1      1E-3    2.3E-4 0.002  0.01  1      1      0       0.002   1
+#emline 4960.30  "Hbeta"   4640.  5100.   "OIII4959c"  1      1E-3    2.3E-4 0.002  0.01  1      1      0       0.002   1
+#emline 5008.24  "Hbeta"   4640.  5100.   "OIII5007c"  1      1E-3    2.3E-4 0.002  0.01  1      1      0       0.004   1
+#emline 4960.30  "Hbeta"   4640.  5100.   "OIII4959w"  1      3E-3    2.3E-4 0.004  0.01  2      2      0       0.001   1
+#emline 5008.24  "Hbeta"   4640.  5100.   "OIII5007w"  1      3E-3    2.3E-4 0.004  0.01  2      2      0       0.002   1
+#emline 4687.02  "Hbeta"   4640.  5100.   "HeII4687_br" 1     5E-3    0.002  0.05   0.005 0      0      0       0.001   1
+#emline 4687.02  "Hbeta"   4640.  5100.   "HeII4687_na" 1     1E-3    2.3E-4 0.002  0.005 1      1      0       0.001   1
+#
+#emline 3934.78  "CaII"    3900.  3960.   "CaII3934"   2      1E-3    3.333E-4   0.002  0.01 99      0      0      -0.001   1
+#
+#emline 3728.48  "OII"     3650.  3800.   "OII3728"    1      1E-3    3.333E-4   0.002  0.01  1      1      0       0.001   1
+# 
+#emline 3426.84  "NeV"     3380.  3480.   "NeV3426"    1      1E-3    3.333E-4   0.002  0.01  0      0      0       0.001   1
+#emline 3426.84  "NeV"     3380.  3480.   "NeV3426_br" 1      5E-3    0.0025 0.02   0.01  0      0      0       0.001   1
+#
+#emline 2798.75  "MgII"    2700.  2900.   "MgII_br"    2      5E-3    0.002  0.05   0.015 0      0      0       0.05    1
+#emline 2798.75  "MgII"    2700.  2900.   "MgII_na"    1      1E-3    5E-4   0.002  0.01  1      1      0       0.002   1
+#
+emline 1908.73  "CIII"    1700.  1970.   "CIII_br"    2      5E-3    0.002  0.05   0.015 99     0      0       0.01    1
+emline 1908.73  "CIII"    1700.  1970.   "CIII_na"    1      1E-3    5E-4   0.002  0.01  1      1      0       0.002   0
+#emline 1892.03  "CIII"    1700.  1970.   "SiIII1892"  1      2E-3    0.001  0.015  0.003 3      3      0       0.005   1
+#emline 1857.40  "CIII"    1700.  1970.   "AlIII1857"  1      2E-3    0.001  0.015  0.003 3      3      0       0.005   1
+#emline 1816.98  "CIII"    1700.  1970.   "SiII1816"   1      2E-3    0.001  0.015  0.01  4      4      0       0.0002  1
+#emline 1786.7   "CIII"    1700.  1970.   "FeII1787"   1      2E-3    0.001  0.015  0.01  4      4      0       0.0002  1
+#emline 1750.26  "CIII"    1700.  1970.   "NIII1750"   1      2E-3    0.001  0.015  0.01  4      4      0       0.001   1
+#emline 1718.55  "CIII"    1700.  1900.   "NIV1718"    1      2E-3    0.001  0.015  0.01  4      4      0       0.001   1
+#
+emline 1549.06  "CIV"     1500.  1700.   "CIV_br"     2      5E-3    0.002  0.05   0.015 0      0      0       0.05    1
+emline 1549.06  "CIV"     1500.  1700.   "CIV_na"     1      1E-3    5E-4   0.002  0.01  1      1      0       0.002   0
+#emline 1640.42  "CIV"     1500.  1700.   "HeII1640"   1      1E-3    5E-4   0.002  0.008 5      5      0       0.002   1
+#emline 1663.48  "CIV"     1500.  1700.   "OIII1663"   1      1E-3    5E-4   0.002  0.008 5      5      0       0.002   1
+#emline 1640.42  "CIV"     1500.  1700.   "HeII1640_br"   1   5E-3    0.0025 0.02   0.008 6      6      0       0.002   1
+#emline 1663.48  "CIV"     1500.  1700.   "OIII1663_br"   1   5E-3    0.0025 0.02   0.008 6      6      0       0.002   1
+#
+#emline 1402.06  "SiIV"    1290.  1450.   "SiIV_OIV1"  1      5E-3    0.002  0.05   0.015 6      6      0       0.05    1
+#emline 1396.76  "SiIV"    1290.  1450.   "SiIV_OIV2"  1      5E-3    0.002  0.05   0.015 6      6      0       0.05    1
+#emline 1335.30  "SiIV"    1290.  1450.   "CII1335"    1      2E-3    0.001  0.015  0.01  7      7      0       0.001   1
+#emline 1304.35  "SiIV"    1290.  1450.   "OI1304"     1      2E-3    0.001  0.015  0.01  7      7      0       0.001   1
+#
+#emline 1215.67  "Lya"     1150.  1290.   "Lya_br"     3      5E-3    0.002  0.05   0.02  0      0      0       0.05    1
+#emline 1215.67  "Lya"     1150.  1290.   "Lya_na"     1      1E-3    5E-4   0.002  0.01  0      0      0       0.002   0
+#emline 1240.14  "Lya"     1150.  1290.   "NV1240"     1      2E-3    0.001  0.01   0.005 0      0      0       0.002   1
